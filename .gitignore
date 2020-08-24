@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Linters/.vs/BeingCraftsman.Linting.Example/v16
+/Linters/BeingCraftsman.Linting.Example.ConsoleApp/bin
+/Linters/BeingCraftsman.Linting.Example.ConsoleApp/obj
+/Linters/BeingCraftsman.Linting.Example.Libraries/bin
+/Linters/BeingCraftsman.Linting.Example.Libraries/obj
+*.user
+*.PNG
+*.suo
