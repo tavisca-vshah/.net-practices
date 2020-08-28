@@ -11,3 +11,7 @@
 *.user
 *.PNG
 *.suo
+/Linters/.vs/BeingCraftsman.Linting.Example/DesignTimeBuild
+/MovieRental/.vs/MovieRental/v15/Server/sqlite3
+/MovieRental/MovieRental.ClassLibrary/obj
+/MovieRental/MovieRental.Tests/obj
