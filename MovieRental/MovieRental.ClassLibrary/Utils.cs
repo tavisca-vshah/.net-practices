@@ -30,7 +30,7 @@ namespace MovieRental.ClassLibrary
         {
             double totalAmount = 0;
             int frequentRenterPoints = 0;
-            string statement = "Rental Record for " + GetCustomerName() + "\n";
+            string statement = $"Rental Record for {GetCustomerName()}\n";
             foreach (Rental rental in _rentals)
             {
                 double rentalCharge = 0;
@@ -40,7 +40,10 @@ namespace MovieRental.ClassLibrary
                     case Regular:
                         rentalCharge += 2;
                         if (rental.GetDaysRented() > 2)
+                        {
                             rentalCharge += (rental.GetDaysRented() - 2) * 1.5;
+                        }
+
                         break;
 
                     case NewRelease:
@@ -50,7 +53,10 @@ namespace MovieRental.ClassLibrary
                     case Childrens: 
                         rentalCharge += 1.5;
                         if (rental.GetDaysRented() > 3)
+                        {
                             rentalCharge += (rental.GetDaysRented() - 3) * 1.5;
+                        }
+
                         break;
                 }
 
@@ -60,18 +66,20 @@ namespace MovieRental.ClassLibrary
                 // add bonus for a two day new release rental
                 if ((rental.GetMovie().GetPriceCode() == 1)
                         &&
-                        rental.GetDaysRented() > 1) frequentRenterPoints++;
+                        rental.GetDaysRented() > 1)
+                {
+                    frequentRenterPoints++;
+                }
 
-                //show figures for this rental
+                // show figures for this rental
                 statement += "\t" + rental.GetMovie().GetMovieTitle() + "\t" +
                         rentalCharge + "\n";
                 totalAmount += rentalCharge;
             }
 
-            //add footer lines result
-            statement += "Amount owed is " + totalAmount + "\n";
-            statement += "You earned " + frequentRenterPoints
-                    + " frequent renter points";
+            // add footer lines result
+            statement += $"Amount owed is {totalAmount}\n";
+            statement += $"You earned {frequentRenterPoints} frequent renter points";
             return statement;
         }
     }
@@ -114,9 +122,9 @@ namespace MovieRental.ClassLibrary
             return _priceCode;
         }
 
-        public void SetPriceCode(int arg)
+        public void SetPriceCode(int priceCode)
         {
-            _priceCode = arg;
+            _priceCode = priceCode;
         }
 
         public string GetMovieTitle()
