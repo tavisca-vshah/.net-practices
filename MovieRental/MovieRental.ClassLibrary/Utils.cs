@@ -5,70 +5,70 @@ namespace MovieRental.ClassLibrary
     public class Customer
     {
         private readonly string _name;
-        private List<Rental> rentals = new List<Rental>();
+        private readonly List<Rental> _rentals = new List<Rental>();
 
         public Customer(string name)
         {
             _name = name;
         }
 
-        public void AddRental(Rental arg)
+        public void AddRental(Rental rental)
         {
-            rentals.Add(arg);
+            _rentals.Add(rental);
         }
 
-        public string GetCustName()
+        public string GetCustomerName()
         {
             return _name;
         }
 
         public string TextStatement()
         {
-            double temp = 0;
-            int points = 0;
-            string result = "Rental Record for " + GetCustName() + "\n";
-            foreach (Rental rd in rentals)
+            double totalAmount = 0;
+            int frequentRenterPoints = 0;
+            string statement = "Rental Record for " + GetCustomerName() + "\n";
+            foreach (Rental rental in _rentals)
             {
-                double amt = 0;
+                double rentalCharge = 0;
 
-                switch (rd.GetMovie().GetPriceCode())
+                switch (rental.GetMovie().GetPriceCode())
                 {
                     case 0: //常規電影 Chángguī diànyǐng
-                        amt += 2;
-                        if (rd.GetDaysRented() > 2)
-                            amt += (rd.GetDaysRented() - 2) * 1.5;
+                        rentalCharge += 2;
+                        if (rental.GetDaysRented() > 2)
+                            rentalCharge += (rental.GetDaysRented() - 2) * 1.5;
                         break;
 
                     case 1:  // Film récemment sorti
-                        amt += rd.GetDaysRented() * 3;
+                        rentalCharge += rental.GetDaysRented() * 3;
                         break;
 
                     case 2: //छोटे बच्चो की मूवीज
-                        amt += 1.5;
-                        if (rd.GetDaysRented() > 3)
-                            amt += (rd.GetDaysRented() - 3) * 1.5;
+                        rentalCharge += 1.5;
+                        if (rental.GetDaysRented() > 3)
+                            rentalCharge += (rental.GetDaysRented() - 3) * 1.5;
                         break;
                 }
 
                 // add frequent renter points
-                points++;
+                frequentRenterPoints++;
 
                 // add bonus for a two day new release rental
-                if ((rd.GetMovie().GetPriceCode() == 1)
+                if ((rental.GetMovie().GetPriceCode() == 1)
                         &&
-                        rd.GetDaysRented() > 1) points++;
+                        rental.GetDaysRented() > 1) frequentRenterPoints++;
 
                 //show figures for this rental
-                result += "\t" + rd.GetMovie().GetMovieTitle() + "\t" +
-                        amt + "\n";
-                temp += amt;
+                statement += "\t" + rental.GetMovie().GetMovieTitle() + "\t" +
+                        rentalCharge + "\n";
+                totalAmount += rentalCharge;
             }
 
             //add footer lines result
-            result += "Amount owed is " + temp + "\n";
-            result += "You earned " + points
+            statement += "Amount owed is " + totalAmount + "\n";
+            statement += "You earned " + frequentRenterPoints
                     + " frequent renter points";
-            return result;
+            return statement;
         }
     }
 
