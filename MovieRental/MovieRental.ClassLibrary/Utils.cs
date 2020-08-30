@@ -4,10 +4,6 @@ namespace MovieRental.ClassLibrary
 {
     public class Customer
     {
-        private const int Childrens = 2;
-        private const int NewRelease = 1;
-        private const int Regular = 0;
-
         private readonly string _name;
         private readonly List<Rental> _rentals = new List<Rental>();
 
@@ -32,7 +28,7 @@ namespace MovieRental.ClassLibrary
 
             foreach (Rental rental in _rentals)
             {
-                statement += "\t" + rental.GetMovie().GetMovieTitle() + "\t" + GetRentalCharge(rental) + "\n";
+                statement += $"\t{rental.GetMovie().GetMovieTitle()}\t{rental.GetCharge()}\n";
             }
 
             // add footer lines result
@@ -47,7 +43,7 @@ namespace MovieRental.ClassLibrary
 
             foreach (Rental rental in _rentals)
             {
-                totalAmount += GetRentalCharge(rental);
+                totalAmount += rental.GetCharge();
             }
 
             return totalAmount;
@@ -73,42 +69,14 @@ namespace MovieRental.ClassLibrary
 
             return frequentRenterPoints;
         }
-
-        private static double GetRentalCharge(Rental rental)
-        {
-            double rentalCharge = 0;
-
-            switch (rental.GetMovie().GetPriceCode())
-            {
-                case Regular:
-                    rentalCharge += 2;
-                    if (rental.GetDaysRented() > 2)
-                    {
-                        rentalCharge += (rental.GetDaysRented() - 2) * 1.5;
-                    }
-
-                    break;
-
-                case NewRelease:
-                    rentalCharge += rental.GetDaysRented() * 3;
-                    break;
-
-                case Childrens:
-                    rentalCharge += 1.5;
-                    if (rental.GetDaysRented() > 3)
-                    {
-                        rentalCharge += (rental.GetDaysRented() - 3) * 1.5;
-                    }
-
-                    break;
-            }
-
-            return rentalCharge;
-        }
     }
 
     public class Rental
     {
+        private const int Childrens = 2;
+        private const int NewRelease = 1;
+        private const int Regular = 0;
+
         private readonly int _daysRented;
         private readonly Movie _movie;
 
@@ -126,6 +94,38 @@ namespace MovieRental.ClassLibrary
         public Movie GetMovie()
         {
             return _movie;
+        }
+
+        internal double GetCharge()
+        {
+            double rentalCharge = 0;
+
+            switch (GetMovie().GetPriceCode())
+            {
+                case Regular:
+                    rentalCharge += 2;
+                    if (GetDaysRented() > 2)
+                    {
+                        rentalCharge += (GetDaysRented() - 2) * 1.5;
+                    }
+
+                    break;
+
+                case NewRelease:
+                    rentalCharge += GetDaysRented() * 3;
+                    break;
+
+                case Childrens:
+                    rentalCharge += 1.5;
+                    if (GetDaysRented() > 3)
+                    {
+                        rentalCharge += (GetDaysRented() - 3) * 1.5;
+                    }
+
+                    break;
+            }
+
+            return rentalCharge;
         }
     }
 
