@@ -4,6 +4,10 @@ namespace MovieRental.ClassLibrary
 {
     public class Customer
     {
+        private const int Childrens = 2;
+        private const int NewRelease = 1;
+        private const int Regular = 0;
+
         private readonly string _name;
         private readonly List<Rental> _rentals = new List<Rental>();
 
@@ -33,17 +37,17 @@ namespace MovieRental.ClassLibrary
 
                 switch (rental.GetMovie().GetPriceCode())
                 {
-                    case 0: //常規電影 Chángguī diànyǐng
+                    case Regular:
                         rentalCharge += 2;
                         if (rental.GetDaysRented() > 2)
                             rentalCharge += (rental.GetDaysRented() - 2) * 1.5;
                         break;
 
-                    case 1:  // Film récemment sorti
+                    case NewRelease:
                         rentalCharge += rental.GetDaysRented() * 3;
                         break;
 
-                    case 2: //छोटे बच्चो की मूवीज
+                    case Childrens: 
                         rentalCharge += 1.5;
                         if (rental.GetDaysRented() > 3)
                             rentalCharge += (rental.GetDaysRented() - 3) * 1.5;
