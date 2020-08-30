@@ -51,23 +51,14 @@ namespace MovieRental.ClassLibrary
 
         private int GetTotalFrequentRenterPoints()
         {
-            int frequentRenterPoints = 0;
+            int totalFrequentRenterPoints = 0;
 
             foreach (Rental rental in _rentals)
             {
-                // add frequent renter points
-                frequentRenterPoints++;
-
-                // add bonus for a two day new release rental
-                if ((rental.GetMovie().GetPriceCode() == 1)
-                        &&
-                        rental.GetDaysRented() > 1)
-                {
-                    frequentRenterPoints++;
-                }
+                totalFrequentRenterPoints += rental.GetFrequentRetarPoints();
             }
 
-            return frequentRenterPoints;
+            return totalFrequentRenterPoints;
         }
     }
 
@@ -94,6 +85,24 @@ namespace MovieRental.ClassLibrary
         public Movie GetMovie()
         {
             return _movie;
+        }
+
+        internal int GetFrequentRetarPoints()
+        {
+            int frequentRenterPoints = 0;
+
+            // add frequent renter points
+            frequentRenterPoints++;
+
+            // add bonus for a two day new release rental
+            if ((GetMovie().GetPriceCode() == 1)
+                    &&
+                    GetDaysRented() > 1)
+            {
+                frequentRenterPoints++;
+            }
+
+            return frequentRenterPoints;
         }
 
         internal double GetCharge()
