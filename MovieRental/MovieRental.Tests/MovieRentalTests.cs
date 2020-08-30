@@ -11,7 +11,7 @@ namespace MovieRental.Tests
         [Fact]
         public void Customer_GenerateTextStatement()
         {
-            Custmer customer = new Custmer("John Doe");
+            Customer customer = new Customer("John Doe");
 
             customer.AddRental(new Rental(new Movie("Harry Potter", 0), 4));
             customer.AddRental(new Rental(new Movie("John Wick", 2), 10));
