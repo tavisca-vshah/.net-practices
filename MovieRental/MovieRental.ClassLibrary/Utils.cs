@@ -1,19 +1,19 @@
-﻿namespace MovieRental.ClassLibrary
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-    public class CustInfo
+namespace MovieRental.ClassLibrary
+{
+    public class Custmer
     {
         private String cust_name;
-        private List<RentalDetails> rentals = new List<RentalDetails>();
+        private List<Rental> rentals = new List<Rental>();
 
-        public CustInfo(String name)
+        public Custmer(String name)
         {
             this.cust_name = name;
         }
 
-        public void addRental(RentalDetails arg)
+        public void addRental(Rental arg)
         {
             rentals.Add(arg);
         }
@@ -28,7 +28,7 @@
             double temp = 0;
             int points = 0;
             String result = "Rental Record for " + getCustName() + "\n";
-            foreach (RentalDetails rd in rentals)
+            foreach (Rental rd in rentals)
             {
                 double amt = 0;
 
@@ -73,12 +73,12 @@
         }
     }
 
-    public class RentalDetails
+    public class Rental
     {
         private int daysRented;
-        private MovieData movie;
+        private Movie movie;
 
-        public RentalDetails(MovieData movie, int daysRented)
+        public Rental(Movie movie, int daysRented)
         {
             this.movie = movie;
             this.daysRented = daysRented;
@@ -89,18 +89,18 @@
             return daysRented;
         }
 
-        public MovieData getMovie()
+        public Movie getMovie()
         {
             return movie;
         }
     }
 
-    public class MovieData
+    public class Movie
     {
         private String movieTitle;
         private int priceCode;
 
-        public MovieData(String title, int priceCode)
+        public Movie(String title, int priceCode)
         {
             this.movieTitle = title;
             this.priceCode = priceCode;

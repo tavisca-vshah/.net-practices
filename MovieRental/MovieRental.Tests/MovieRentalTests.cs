@@ -11,11 +11,11 @@ namespace MovieRental.Tests
         [Fact]
         public void Customer_GenerateTextStatement()
         {
-            CustInfo customer = new CustInfo("John Doe");
+            Custmer customer = new Custmer("John Doe");
 
-            customer.addRental(new RentalDetails(new MovieData("Harry Potter", 0), 4));
-            customer.addRental(new RentalDetails(new MovieData("John Wick", 2), 10));
-            customer.addRental(new RentalDetails(new MovieData("The Boult", 1), 20));
+            customer.addRental(new Rental(new Movie("Harry Potter", 0), 4));
+            customer.addRental(new Rental(new Movie("John Wick", 2), 10));
+            customer.addRental(new Rental(new Movie("The Boult", 1), 20));
 
             string statement = customer.statement();
 
