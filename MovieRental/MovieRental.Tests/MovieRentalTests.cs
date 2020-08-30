@@ -13,11 +13,11 @@ namespace MovieRental.Tests
         {
             Custmer customer = new Custmer("John Doe");
 
-            customer.addRental(new Rental(new Movie("Harry Potter", 0), 4));
-            customer.addRental(new Rental(new Movie("John Wick", 2), 10));
-            customer.addRental(new Rental(new Movie("The Boult", 1), 20));
+            customer.AddRental(new Rental(new Movie("Harry Potter", 0), 4));
+            customer.AddRental(new Rental(new Movie("John Wick", 2), 10));
+            customer.AddRental(new Rental(new Movie("The Boult", 1), 20));
 
-            string statement = customer.statement();
+            string statement = customer.TextStatement();
 
             Assert.Equal("Rental Record for John Doe\n" +
                     "\tHarry Potter\t5\n" +

@@ -13,41 +13,41 @@ namespace MovieRental.ClassLibrary
             this.cust_name = name;
         }
 
-        public void addRental(Rental arg)
+        public void AddRental(Rental arg)
         {
             rentals.Add(arg);
         }
 
-        public String getCustName()
+        public String GetCustName()
         {
             return cust_name;
         }
 
-        public String statement()
+        public String TextStatement()
         {
             double temp = 0;
             int points = 0;
-            String result = "Rental Record for " + getCustName() + "\n";
+            String result = "Rental Record for " + GetCustName() + "\n";
             foreach (Rental rd in rentals)
             {
                 double amt = 0;
 
-                switch (rd.getMovie().getPriceCode())
+                switch (rd.GetMovie().GetPriceCode())
                 {
                     case 0: //常規電影 Chángguī diànyǐng
                         amt += 2;
-                        if (rd.getDaysRented() > 2)
-                            amt += (rd.getDaysRented() - 2) * 1.5;
+                        if (rd.GetDaysRented() > 2)
+                            amt += (rd.GetDaysRented() - 2) * 1.5;
                         break;
 
                     case 1:  // Film récemment sorti
-                        amt += rd.getDaysRented() * 3;
+                        amt += rd.GetDaysRented() * 3;
                         break;
 
                     case 2: //छोटे बच्चो की मूवीज 
                         amt += 1.5;
-                        if (rd.getDaysRented() > 3)
-                            amt += (rd.getDaysRented() - 3) * 1.5;
+                        if (rd.GetDaysRented() > 3)
+                            amt += (rd.GetDaysRented() - 3) * 1.5;
                         break;
                 }
 
@@ -55,12 +55,12 @@ namespace MovieRental.ClassLibrary
                 points++;
                 
                 // add bonus for a two day new release rental
-                if ((rd.getMovie().getPriceCode() == 1)
+                if ((rd.GetMovie().GetPriceCode() == 1)
                         &&
-                        rd.getDaysRented() > 1) points++;
+                        rd.GetDaysRented() > 1) points++;
 
                 //show figures for this rental
-                result += "\t" + rd.getMovie().getMovieTitle() + "\t" +
+                result += "\t" + rd.GetMovie().GetMovieTitle() + "\t" +
                         amt + "\n";
                 temp += amt;
             }
@@ -84,12 +84,12 @@ namespace MovieRental.ClassLibrary
             this.daysRented = daysRented;
         }
 
-        public int getDaysRented()
+        public int GetDaysRented()
         {
             return daysRented;
         }
 
-        public Movie getMovie()
+        public Movie GetMovie()
         {
             return movie;
         }
@@ -106,17 +106,17 @@ namespace MovieRental.ClassLibrary
             this.priceCode = priceCode;
         }
 
-        public int getPriceCode()
+        public int GetPriceCode()
         {
             return priceCode;
         }
 
-        public void setPriceCode(int arg)
+        public void SetPriceCode(int arg)
         {
             priceCode = arg;
         }
 
-        public String getMovieTitle()
+        public String GetMovieTitle()
         {
             return movieTitle;
         }
