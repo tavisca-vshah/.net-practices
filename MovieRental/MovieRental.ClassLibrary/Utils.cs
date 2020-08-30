@@ -31,34 +31,10 @@ namespace MovieRental.ClassLibrary
             double totalAmount = 0;
             int frequentRenterPoints = 0;
             string statement = $"Rental Record for {GetCustomerName()}\n";
+
             foreach (Rental rental in _rentals)
             {
-                double rentalCharge = 0;
-
-                switch (rental.GetMovie().GetPriceCode())
-                {
-                    case Regular:
-                        rentalCharge += 2;
-                        if (rental.GetDaysRented() > 2)
-                        {
-                            rentalCharge += (rental.GetDaysRented() - 2) * 1.5;
-                        }
-
-                        break;
-
-                    case NewRelease:
-                        rentalCharge += rental.GetDaysRented() * 3;
-                        break;
-
-                    case Childrens: 
-                        rentalCharge += 1.5;
-                        if (rental.GetDaysRented() > 3)
-                        {
-                            rentalCharge += (rental.GetDaysRented() - 3) * 1.5;
-                        }
-
-                        break;
-                }
+                double rentalCharge = GetRentalCharge(rental);
 
                 // add frequent renter points
                 frequentRenterPoints++;
@@ -81,6 +57,38 @@ namespace MovieRental.ClassLibrary
             statement += $"Amount owed is {totalAmount}\n";
             statement += $"You earned {frequentRenterPoints} frequent renter points";
             return statement;
+        }
+
+        private static double GetRentalCharge(Rental rental)
+        {
+            double rentalCharge = 0;
+
+            switch (rental.GetMovie().GetPriceCode())
+            {
+                case Regular:
+                    rentalCharge += 2;
+                    if (rental.GetDaysRented() > 2)
+                    {
+                        rentalCharge += (rental.GetDaysRented() - 2) * 1.5;
+                    }
+
+                    break;
+
+                case NewRelease:
+                    rentalCharge += rental.GetDaysRented() * 3;
+                    break;
+
+                case Childrens:
+                    rentalCharge += 1.5;
+                    if (rental.GetDaysRented() > 3)
+                    {
+                        rentalCharge += (rental.GetDaysRented() - 3) * 1.5;
+                    }
+
+                    break;
+            }
+
+            return rentalCharge;
         }
     }
 
