@@ -21,14 +21,14 @@
             return _movie;
         }
 
-        internal int GetFrquentRenterPoints()
-        {
-            return _movie.GetFrquentRenterPoints(_daysRented);
-        }
-
         internal double GetCharge()
         {
             return _movie.GetCharge(_daysRented);
+        }
+
+        internal int GetFrquentRenterPoints()
+        {
+            return _movie.GetFrquentRenterPoints(_daysRented);
         }
     }
 }

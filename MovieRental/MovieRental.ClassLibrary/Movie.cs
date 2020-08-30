@@ -8,8 +8,8 @@ namespace MovieRental.ClassLibrary
         internal const int NewRelease = 1;
         internal const int Regular = 0;
 
-        private Price _price;
         private readonly string _movieTitle;
+        private Price _price;
 
         public Movie(string title, int priceCode)
         {
@@ -27,6 +27,11 @@ namespace MovieRental.ClassLibrary
             return _price.GetPriceCode();
         }
 
+        internal double GetCharge(int daysRented)
+        {
+            return _price.GetCharge(daysRented);
+        }
+
         internal int GetFrquentRenterPoints(int daysRented)
         {
             if ((GetPriceCode() == Movie.NewRelease) && daysRented > 1)
@@ -37,12 +42,7 @@ namespace MovieRental.ClassLibrary
             return 1;
         }
 
-        internal double GetCharge(int daysRented)
-        {
-            return _price.GetCharge(daysRented);
-        }
-
-        public void SetPriceCode(int priceCode)
+        private void SetPriceCode(int priceCode)
         {
             switch (priceCode)
             {

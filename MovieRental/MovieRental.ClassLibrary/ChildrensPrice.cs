@@ -2,11 +2,6 @@
 {
     internal class ChildrensPrice : Price
     {
-        public override int GetPriceCode()
-        {
-            return Movie.Childrens;
-        }
-
         public override double GetCharge(int daysRented)
         {
             double amount = 1.5;
@@ -16,6 +11,11 @@
             }
 
             return amount;
+        }
+
+        public override int GetPriceCode()
+        {
+            return Movie.Childrens;
         }
     }
 }
