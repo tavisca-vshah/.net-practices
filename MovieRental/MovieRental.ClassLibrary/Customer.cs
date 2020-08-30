@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MovieRental.ClassLibrary
 {
@@ -39,26 +40,12 @@ namespace MovieRental.ClassLibrary
 
         private double GetTotalAmount()
         {
-            double totalAmount = 0;
-
-            foreach (Rental rental in _rentals)
-            {
-                totalAmount += rental.GetCharge();
-            }
-
-            return totalAmount;
+            return _rentals.Sum((x) => x.GetCharge());
         }
 
         private int GetTotalFrequentRenterPoints()
         {
-            int totalFrequentRenterPoints = 0;
-
-            foreach (Rental rental in _rentals)
-            {
-                totalFrequentRenterPoints += rental.GetFrquentRenterPoints();
-            }
-
-            return totalFrequentRenterPoints;
+            return _rentals.Sum((x) => x.GetFrquentRenterPoints());
         }
     }
 }
