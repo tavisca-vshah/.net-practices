@@ -28,14 +28,37 @@ namespace MovieRental.ClassLibrary
 
         public string TextStatement()
         {
-            double totalAmount = 0;
-            int frequentRenterPoints = 0;
             string statement = $"Rental Record for {GetCustomerName()}\n";
 
             foreach (Rental rental in _rentals)
             {
-                double rentalCharge = GetRentalCharge(rental);
+                statement += "\t" + rental.GetMovie().GetMovieTitle() + "\t" + GetRentalCharge(rental) + "\n";
+            }
 
+            // add footer lines result
+            statement += $"Amount owed is {GetTotalAmount()}\n";
+            statement += $"You earned {GetTotalFrequentRenterPoints()} frequent renter points";
+            return statement;
+        }
+
+        private double GetTotalAmount()
+        {
+            double totalAmount = 0;
+
+            foreach (Rental rental in _rentals)
+            {
+                totalAmount += GetRentalCharge(rental);
+            }
+
+            return totalAmount;
+        }
+
+        private int GetTotalFrequentRenterPoints()
+        {
+            int frequentRenterPoints = 0;
+
+            foreach (Rental rental in _rentals)
+            {
                 // add frequent renter points
                 frequentRenterPoints++;
 
@@ -46,17 +69,9 @@ namespace MovieRental.ClassLibrary
                 {
                     frequentRenterPoints++;
                 }
-
-                // show figures for this rental
-                statement += "\t" + rental.GetMovie().GetMovieTitle() + "\t" +
-                        rentalCharge + "\n";
-                totalAmount += rentalCharge;
             }
 
-            // add footer lines result
-            statement += $"Amount owed is {totalAmount}\n";
-            statement += $"You earned {frequentRenterPoints} frequent renter points";
-            return statement;
+            return frequentRenterPoints;
         }
 
         private static double GetRentalCharge(Rental rental)
