@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MovieRental.ClassLibrary;
+﻿using MovieRental.ClassLibrary;
 using Xunit;
 
 namespace MovieRental.Tests
@@ -19,7 +16,8 @@ namespace MovieRental.Tests
 
             string statement = customer.TextStatement();
 
-            Assert.Equal("Rental Record for John Doe\n" +
+            Assert.Equal(
+                "Rental Record for John Doe\n" +
                     "\tHarry Potter\t5\n" +
                     "\tJohn Wick\t12\n" +
                     "\tThe Boult\t60\n" +

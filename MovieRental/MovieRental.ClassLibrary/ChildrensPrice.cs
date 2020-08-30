@@ -14,6 +14,7 @@
             {
                 amount += (daysRented - 3) * 1.5;
             }
+
             return amount;
         }
     }
