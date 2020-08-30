@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieRental.ClassLibrary", "MovieRental.ClassLibrary\MovieRental.ClassLibrary.csproj", "{B892EB01-6AB9-4E5C-AF05-B584E0D45BC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental.Tests", "MovieRental.Tests\MovieRental.Tests.csproj", "{8F455FDE-00FF-46D4-96C6-C609D11FB45E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieRental.Tests", "MovieRental.Tests\MovieRental.Tests.csproj", "{8F455FDE-00FF-46D4-96C6-C609D11FB45E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{256734F1-BFE7-4E32-803D-37051ED28949}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
