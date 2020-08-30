@@ -4,12 +4,12 @@ namespace MovieRental.ClassLibrary
 {
     public class Customer
     {
-        private string cust_name;
+        private readonly string _name;
         private List<Rental> rentals = new List<Rental>();
 
         public Customer(string name)
         {
-            this.cust_name = name;
+            _name = name;
         }
 
         public void AddRental(Rental arg)
@@ -19,7 +19,7 @@ namespace MovieRental.ClassLibrary
 
         public string GetCustName()
         {
-            return cust_name;
+            return _name;
         }
 
         public string TextStatement()
@@ -74,50 +74,50 @@ namespace MovieRental.ClassLibrary
 
     public class Rental
     {
-        private int daysRented;
-        private Movie movie;
+        private readonly int _daysRented;
+        private readonly Movie _movie;
 
         public Rental(Movie movie, int daysRented)
         {
-            this.movie = movie;
-            this.daysRented = daysRented;
+            _movie = movie;
+            _daysRented = daysRented;
         }
 
         public int GetDaysRented()
         {
-            return daysRented;
+            return _daysRented;
         }
 
         public Movie GetMovie()
         {
-            return movie;
+            return _movie;
         }
     }
 
     public class Movie
     {
-        private string movieTitle;
-        private int priceCode;
+        private readonly string _movieTitle;
+        private int _priceCode;
 
         public Movie(string title, int priceCode)
         {
-            this.movieTitle = title;
-            this.priceCode = priceCode;
+            _movieTitle = title;
+            _priceCode = priceCode;
         }
 
         public int GetPriceCode()
         {
-            return priceCode;
+            return _priceCode;
         }
 
         public void SetPriceCode(int arg)
         {
-            priceCode = arg;
+            _priceCode = arg;
         }
 
         public string GetMovieTitle()
         {
-            return movieTitle;
+            return _movieTitle;
         }
     }
 }
