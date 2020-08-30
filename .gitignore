@@ -18,3 +18,5 @@
 /MovieRental/MovieRental.ClassLibrary/bin/Debug/netstandard2.0
 /MovieRental/MovieRental.Tests/bin/Debug/netcoreapp2.2
 /MovieRental/.vs/
+/MovieRental/MovieRental.ClassLibrary/bin/
+/MovieRental/MovieRental.Tests/bin/
