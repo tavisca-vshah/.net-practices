@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MovieRental.ClassLibrary
 {
@@ -96,27 +97,17 @@ namespace MovieRental.ClassLibrary
 
     public class Movie
     {
-        private const int Childrens = 2;
-        private const int NewRelease = 1;
-        private const int Regular = 0;
+        internal const int Childrens = 2;
+        internal const int NewRelease = 1;
+        internal const int Regular = 0;
 
+        private Price _price;
         private readonly string _movieTitle;
-        private int _priceCode;
 
         public Movie(string title, int priceCode)
         {
             _movieTitle = title;
-            _priceCode = priceCode;
-        }
-
-        public int GetPriceCode()
-        {
-            return _priceCode;
-        }
-
-        public void SetPriceCode(int priceCode)
-        {
-            _priceCode = priceCode;
+            SetPriceCode(priceCode);
         }
 
         public string GetMovieTitle()
@@ -124,52 +115,103 @@ namespace MovieRental.ClassLibrary
             return _movieTitle;
         }
 
+        public int GetPriceCode()
+        {
+            return _price.GetPriceCode();
+        }
+
         internal int GetFrquentRenterPoints(int daysRented)
         {
-            int frequentRenterPoints = 0;
-
-            // add frequent renter points
-            frequentRenterPoints++;
-
-            // add bonus for a two day new release rental
-            if ((GetPriceCode() == 1) && daysRented > 1)
+            if ((GetPriceCode() == Movie.NewRelease) && daysRented > 1)
             {
-                frequentRenterPoints++;
+                return 2;
             }
 
-            return frequentRenterPoints;
+            return 1;
         }
 
         internal double GetCharge(int daysRented)
         {
-            double rentalCharge = 0;
+            return _price.GetCharge(daysRented);
+        }
 
-            switch (GetPriceCode())
+        public void SetPriceCode(int priceCode)
+        {
+            switch (priceCode)
             {
-                case Regular:
-                    rentalCharge += 2;
-                    if (daysRented > 2)
-                    {
-                        rentalCharge += (daysRented - 2) * 1.5;
-                    }
-
+                case Movie.Regular:
+                    _price = new RegularPrice();
                     break;
 
-                case NewRelease:
-                    rentalCharge += daysRented * 3;
+                case Movie.Childrens:
+                    _price = new ChildrensPrice();
                     break;
 
-                case Childrens:
-                    rentalCharge += 1.5;
-                    if (daysRented > 3)
-                    {
-                        rentalCharge += (daysRented - 3) * 1.5;
-                    }
-
+                case Movie.NewRelease:
+                    _price = new NewReleasePrice();
                     break;
+
+                default:
+                    throw new ArgumentException("Incorrect price code");
+            }
+        }
+    }
+
+    internal abstract class Price
+    {
+        public abstract double GetCharge(int daysRented);
+
+        public abstract int GetPriceCode();
+    }
+
+    internal class ChildrensPrice : Price
+    {
+        public override int GetPriceCode()
+        {
+            return Movie.Childrens;
+        }
+
+        public override double GetCharge(int daysRented)
+        {
+            double amount = 1.5;
+            if (daysRented > 3)
+            {
+                amount += (daysRented - 3) * 1.5;
+            }
+            return amount;
+        }
+    }
+
+    internal class NewReleasePrice : Price
+    {
+        public override int GetPriceCode()
+        {
+            return Movie.NewRelease;
+        }
+
+        public override double GetCharge(int daysRented)
+        {
+            return daysRented * 3;
+        }
+    }
+
+    internal class RegularPrice : Price
+    {
+        public override int GetPriceCode()
+        {
+            return Movie.Regular;
+        }
+
+        public override double GetCharge(int daysRented)
+        {
+            var amount = 2.0;
+
+            if (daysRented > 2)
+            {
+                amount += (daysRented - 2) * 1.5;
             }
 
-            return rentalCharge;
+            return amount;
         }
     }
 }
