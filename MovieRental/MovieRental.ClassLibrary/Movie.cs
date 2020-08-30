@@ -14,7 +14,7 @@ namespace MovieRental.ClassLibrary
         public Movie(string title, int priceCode)
         {
             _movieTitle = title;
-            SetPriceCode(priceCode);
+            _price = PriceFactory.CreateFor(priceCode);
         }
 
         public string GetMovieTitle()
@@ -40,27 +40,6 @@ namespace MovieRental.ClassLibrary
             }
 
             return 1;
-        }
-
-        private void SetPriceCode(int priceCode)
-        {
-            switch (priceCode)
-            {
-                case Movie.Regular:
-                    _price = new RegularPrice();
-                    break;
-
-                case Movie.Childrens:
-                    _price = new ChildrensPrice();
-                    break;
-
-                case Movie.NewRelease:
-                    _price = new NewReleasePrice();
-                    break;
-
-                default:
-                    throw new ArgumentException("Incorrect price code");
-            }
         }
     }
 }
