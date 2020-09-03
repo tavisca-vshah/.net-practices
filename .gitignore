@@ -15,3 +15,14 @@
 /MovieRental/.vs/MovieRental/v15/Server/sqlite3
 /MovieRental/MovieRental.ClassLibrary/obj
 /MovieRental/MovieRental.Tests/obj
+/MovieRental/MovieRental.ClassLibrary/bin/Debug/netstandard2.0
+/MovieRental/MovieRental.Tests/bin/Debug/netcoreapp2.2
+/MovieRental/.vs/
+/MovieRental/MovieRental.ClassLibrary/bin/
+/MovieRental/MovieRental.Tests/bin/
+/CoverletCoverageDemo/BeingCraftsman.TestCoverlet.CoverageDemo/obj
+/CoverletCoverageDemo/.vs
+/CoverletCoverageDemo/BeingCraftsman.Covrlet.Demo.Tests/bin
+/CoverletCoverageDemo/BeingCraftsman.Covrlet.Demo.Tests/obj
+/CoverletCoverageDemo/BeingCraftsman.TestCoverlet.CoverageDemo/.vs
+/CoverletCoverageDemo/BeingCraftsman.TestCoverlet.CoverageDemo/bin

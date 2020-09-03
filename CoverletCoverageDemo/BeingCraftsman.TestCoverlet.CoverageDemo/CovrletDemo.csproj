@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>CovrletDemo</AssemblyName>
+    <RootNamespace>BeingCraftsman.Covrlet.Demo</RootNamespace>
+  </PropertyGroup>
+
+</Project>
