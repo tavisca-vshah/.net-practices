@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1231
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovrletDemo", "BeingCraftsman.TestCoverlet.CoverageDemo\CovrletDemo.csproj", "{B5A796C0-4B28-4325-9C1E-8BD4025BA338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovrletDemo", "BeingCraftsman.TestCoverlet.CoverageDemo\CovrletDemo.csproj", "{B5A796C0-4B28-4325-9C1E-8BD4025BA338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovrletDemoTests", "BeingCraftsman.Covrlet.Demo.Tests\CovrletDemoTests.csproj", "{D31727D2-D5BD-4BFA-BD34-5D9357DAED49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovrletDemoTests", "BeingCraftsman.Covrlet.Demo.Tests\CovrletDemoTests.csproj", "{D31727D2-D5BD-4BFA-BD34-5D9357DAED49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89072350-46CF-4EFF-A9AD-47F79232E1E9}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
