@@ -4,7 +4,7 @@ Open powershell and navigate to tests folder
 
 `dotnet test`
 
-**Coverlet Integration with MSBuild - Cross-platform code coverage for .NET** 
+**Integrate Coverlet with MSBuild - Cross-platform code coverage for .NET** 
 
 `dotnet add package coverlet.msbuild`
 
