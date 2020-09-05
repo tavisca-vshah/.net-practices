@@ -20,9 +20,9 @@
 /MovieRental/.vs/
 /MovieRental/MovieRental.ClassLibrary/bin/
 /MovieRental/MovieRental.Tests/bin/
-/CoverletCoverageDemo/BeingCraftsman.TestCoverlet.CoverageDemo/obj
 /CoverletCoverageDemo/.vs
-/CoverletCoverageDemo/BeingCraftsman.Covrlet.Demo.Tests/bin
-/CoverletCoverageDemo/BeingCraftsman.Covrlet.Demo.Tests/obj
-/CoverletCoverageDemo/BeingCraftsman.TestCoverlet.CoverageDemo/.vs
-/CoverletCoverageDemo/BeingCraftsman.TestCoverlet.CoverageDemo/bin
+/CoverletCoverageDemo/BeingCraftsman.CoverageDemo/obj
+/CoverletCoverageDemo/BeingCraftsman.CoverageDemo/bin/Debug/netstandard2.0
+/CoverletCoverageDemo/BeingCraftsman.CoverageDemo/.vs/BeingCraftsman.TestCoverlet.CoverageDemo
+/CoverletCoverageDemo/BeingCraftsman.CoverageDemo.Tests/obj
+/CoverletCoverageDemo/BeingCraftsman.CoverageDemo.Tests/bin/Debug/netcoreapp2.2
