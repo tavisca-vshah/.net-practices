@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CovrletDemo
+namespace BeingCraftsman.CoverageDemo
 {
     public static class FizzBuzzGenerator
     {

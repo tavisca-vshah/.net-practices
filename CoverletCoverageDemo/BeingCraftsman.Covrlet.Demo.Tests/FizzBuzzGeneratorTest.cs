@@ -1,5 +1,5 @@
 using System;
-using CovrletDemo;
+using BeingCraftsman.CoverageDemo;
 using Xunit;
 
 namespace CovrletDemoTests
