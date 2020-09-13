@@ -12,9 +12,9 @@ namespace MovieRental.Tests
         public void Customer_GenerateTextStatement()
         {
             var customer = new Customer("John Doe");
-            customer.AddRental(new Rental(new Movie("Harry Potter", MovieType.Regular), 4));
-            customer.AddRental(new Rental(new Movie("John Wick", MovieType.LittleKids), 10));
-            customer.AddRental(new Rental(new Movie("The Boult", MovieType.RecentlyReleased), 20));
+            customer.AddRental(new Rental(new RegularMovie("Harry Potter"), 4));
+            customer.AddRental(new Rental(new KidsMovie("John Wick"), 10));
+            customer.AddRental(new Rental(new TrendingMovie("The Boult"), 20));
             string statement = customer.TextStatement();
             Assert.Equal(
                 "Rental Record for John Doe\n" +

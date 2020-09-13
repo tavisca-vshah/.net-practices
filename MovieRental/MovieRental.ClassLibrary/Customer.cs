@@ -26,46 +26,30 @@ namespace MovieRental.ClassLibrary
         }
 
         //Todo: Remove this from here and create Interface for Statement Formatter
+        //Todo: Decouple Text formatter task and Price compute O/p
+        //Todo: check if Movie object can be replaced with its appropiate type
         public string TextStatement()
         {
             double temp = 0;
             int points = 0;
+            //Todo : Replace String with StringBuilder because of performance hit
             string result = "Rental Record for " + GetName() + "\n";
             foreach (Rental rd in _rentals)
             {
-                double amt = 0;
-
-                switch (rd.GetMovie().GetMovieType())
-                {
-                    case MovieType.Regular:
-                        amt += 2;
-                        if (rd.GetDaysRented() > 2)
-                            amt += (rd.GetDaysRented() - 2) * 1.5;
-                        break;
-
-                    case MovieType.RecentlyReleased:
-                        amt += rd.GetDaysRented() * 3;
-                        break;
-
-                    case MovieType.LittleKids:
-                        amt += 1.5;
-                        if (rd.GetDaysRented() > 3)
-                            amt += (rd.GetDaysRented() - 3) * 1.5;
-                        break;
-                }
+                double amount = rd.GetMovie().GetPrice(rd.GetDaysRented());
 
                 // add frequent renter points
                 points++;
 
                 // add bonus for a two day new release rental
-                if ((rd.GetMovie().GetMovieType() == MovieType.RecentlyReleased)
+                if ((rd.GetMovie() is TrendingMovie)
                         &&
                         rd.GetDaysRented() > 1) points++;
 
                 //show figures for this rental
                 result += "\t" + rd.GetMovie().GetMovieTitle() + "\t" +
-                        amt + "\n";
-                temp += amt;
+                        amount + "\n";
+                temp += amount;
             }
 
             //add footer lines result
