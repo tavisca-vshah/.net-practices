@@ -23,7 +23,7 @@ namespace MovieRental.ClassLibrary
             return _custName;
         }
 
-        public string Statement()
+        public string TextStatement()
         {
             double temp = 0;
             int points = 0;
