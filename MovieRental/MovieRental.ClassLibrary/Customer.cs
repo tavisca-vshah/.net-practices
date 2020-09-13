@@ -18,7 +18,7 @@ namespace MovieRental.ClassLibrary
             _rentals.Add(arg);
         }
 
-        public string GetCustomerName()
+        public string GetName()
         {
             return _name;
         }
@@ -27,7 +27,7 @@ namespace MovieRental.ClassLibrary
         {
             double temp = 0;
             int points = 0;
-            string result = "Rental Record for " + GetCustomerName() + "\n";
+            string result = "Rental Record for " + GetName() + "\n";
             foreach (Rental rd in _rentals)
             {
                 double amt = 0;
