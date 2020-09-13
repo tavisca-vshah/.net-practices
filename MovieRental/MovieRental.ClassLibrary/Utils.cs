@@ -44,7 +44,7 @@
                         amt += rd.getDaysRented() * 3;
                         break;
 
-                    case 2: //छोटे बच्चो की मूवीज 
+                    case 2: //छोटे बच्चो की मूवीज
                         amt += 1.5;
                         if (rd.getDaysRented() > 3)
                             amt += (rd.getDaysRented() - 3) * 1.5;
@@ -53,7 +53,7 @@
 
                 // add frequent renter points
                 points++;
-                
+
                 // add bonus for a two day new release rental
                 if ((rd.getMovie().getPriceCode() == 1)
                         &&
@@ -70,55 +70,6 @@
             result += "You earned " + points
                     + " frequent renter points";
             return result;
-        }
-    }
-
-    public class RentalDetails
-    {
-        private int daysRented;
-        private MovieData movie;
-
-        public RentalDetails(MovieData movie, int daysRented)
-        {
-            this.movie = movie;
-            this.daysRented = daysRented;
-        }
-
-        public int getDaysRented()
-        {
-            return daysRented;
-        }
-
-        public MovieData getMovie()
-        {
-            return movie;
-        }
-    }
-
-    public class MovieData
-    {
-        private String movieTitle;
-        private int priceCode;
-
-        public MovieData(String title, int priceCode)
-        {
-            this.movieTitle = title;
-            this.priceCode = priceCode;
-        }
-
-        public int getPriceCode()
-        {
-            return priceCode;
-        }
-
-        public void setPriceCode(int arg)
-        {
-            priceCode = arg;
-        }
-
-        public String getMovieTitle()
-        {
-            return movieTitle;
         }
     }
 }
