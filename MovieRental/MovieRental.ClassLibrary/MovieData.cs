@@ -4,28 +4,28 @@ namespace MovieRental.ClassLibrary
 {
     public class MovieData
     {
-        private String movieTitle;
-        private int priceCode;
+        private string _movieTitle;
+        private int _priceCode;
 
-        public MovieData(String title, int priceCode)
+        public MovieData(string title, int priceCode)
         {
-            this.movieTitle = title;
-            this.priceCode = priceCode;
+            _movieTitle = title;
+            _priceCode = priceCode;
         }
 
-        public int getPriceCode()
+        public int GetPriceCode()
         {
-            return priceCode;
+            return _priceCode;
         }
 
-        public void setPriceCode(int arg)
+        public void SetPriceCode(int arg)
         {
-            priceCode = arg;
+            _priceCode = arg;
         }
 
-        public String getMovieTitle()
+        public string GetMovieTitle()
         {
-            return movieTitle;
+            return _movieTitle;
         }
     }
 }
