@@ -5,12 +5,12 @@ namespace MovieRental.ClassLibrary
 {
     public class Customer
     {
-        private string _custName;
+        private readonly string _name;
         private readonly List<Rental> _rentals = new List<Rental>();
 
         public Customer(string name)
         {
-            _custName = name;
+            _name = name;
         }
 
         public void AddRental(Rental arg)
@@ -18,16 +18,16 @@ namespace MovieRental.ClassLibrary
             _rentals.Add(arg);
         }
 
-        public string GetCustName()
+        public string GetCustomerName()
         {
-            return _custName;
+            return _name;
         }
 
         public string TextStatement()
         {
             double temp = 0;
             int points = 0;
-            string result = "Rental Record for " + GetCustName() + "\n";
+            string result = "Rental Record for " + GetCustomerName() + "\n";
             foreach (Rental rd in _rentals)
             {
                 double amt = 0;

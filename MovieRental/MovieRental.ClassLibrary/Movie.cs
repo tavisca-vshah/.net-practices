@@ -4,7 +4,7 @@ namespace MovieRental.ClassLibrary
 {
     public class Movie
     {
-        private string _movieTitle;
+        private readonly string _movieTitle;
         private int _priceCode;
 
         public Movie(string title, int priceCode)
