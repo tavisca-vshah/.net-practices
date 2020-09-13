@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
 namespace MovieRental.ClassLibrary
 {
@@ -26,30 +27,28 @@ namespace MovieRental.ClassLibrary
         }
 
         //Todo: Remove this from here and create Interface for Statement Formatter
-        //Todo: Decouple Text formatter task and Price compute O/p
-        //Todo: check if Movie object can be replaced with its appropiate type
         public string TextStatement()
         {
             double temp = 0;
             int points = 0;
-            //Todo : Replace String with StringBuilder because of performance hit
-            string result = "Rental Record for " + GetName() + "\n";
+
+            var result = new StringBuilder("Rental Record for " + GetName() + "\n");
+
             foreach (Rental rd in _rentals)
             {
                 var amount = rd.GetMovie().GetPrice(rd.GetDaysRented());
 
                 points += rd.GetPoints();
                 //show figures for this rental
-                result += "\t" + rd.GetMovie().GetMovieTitle() + "\t" +
-                        amount + "\n";
+                result.Append("\t" + rd.GetMovie().GetMovieTitle() + "\t" + amount + "\n");
                 temp += amount;
             }
 
             //add footer lines result
-            result += "Amount owed is " + temp + "\n";
-            result += "You earned " + points
-                    + " frequent renter points";
-            return result;
+            result.Append("Amount owed is " + temp + "\n");
+            result.Append("You earned " + points + " frequent renter points");
+
+            return result.ToString();
         }
     }
 }
