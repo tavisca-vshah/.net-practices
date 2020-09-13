@@ -5,27 +5,24 @@ namespace MovieRental.ClassLibrary
     public class Movie
     {
         private readonly string _movieTitle;
-        private int _priceCode; //Todo: this should be enum
+        private MovieType _movieType;
 
-        public Movie(string title, int priceCode)
+        public Movie(string title, MovieType movieType)
         {
             Guard.Against.NullOrWhiteSpace(title, nameof(title));
-            Guard.Against.LessThanZero(priceCode, nameof(priceCode));
 
             _movieTitle = title;
-            _priceCode = priceCode;
+            _movieType = movieType;
         }
 
-        public int GetPriceCode()
+        public MovieType GetMovieType()
         {
-            return _priceCode;
+            return _movieType;
         }
 
-        public void SetPriceCode(int arg)
+        public void SetMovieType(MovieType movieType)
         {
-            Guard.Against.LessThanZero(arg, nameof(arg));
-
-            _priceCode = arg;
+            _movieType = movieType;
         }
 
         public string GetMovieTitle()

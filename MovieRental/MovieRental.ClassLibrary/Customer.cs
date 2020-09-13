@@ -35,19 +35,19 @@ namespace MovieRental.ClassLibrary
             {
                 double amt = 0;
 
-                switch (rd.GetMovie().GetPriceCode())
+                switch (rd.GetMovie().GetMovieType())
                 {
-                    case 0: // Regular movie
+                    case MovieType.Regular: // Regular movie
                         amt += 2;
                         if (rd.GetDaysRented() > 2)
                             amt += (rd.GetDaysRented() - 2) * 1.5;
                         break;
 
-                    case 1:  // Recently released movie
+                    case MovieType.RecentlyReleased:  // Recently released movie
                         amt += rd.GetDaysRented() * 3;
                         break;
 
-                    case 2: //Little kids movies
+                    case MovieType.LittleKids: //Little kids movies
                         amt += 1.5;
                         if (rd.GetDaysRented() > 3)
                             amt += (rd.GetDaysRented() - 3) * 1.5;
@@ -58,7 +58,7 @@ namespace MovieRental.ClassLibrary
                 points++;
 
                 // add bonus for a two day new release rental
-                if ((rd.GetMovie().GetPriceCode() == 1)
+                if ((rd.GetMovie().GetMovieType() == MovieType.RecentlyReleased)
                         &&
                         rd.GetDaysRented() > 1) points++;
 
