@@ -8,7 +8,7 @@ namespace MovieRental.ClassLibrary
         private string _custName;
         private readonly List<RentalDetails> _rentals = new List<RentalDetails>();
 
-        public Customer(String name)
+        public Customer(string name)
         {
             _custName = name;
         }
@@ -23,11 +23,11 @@ namespace MovieRental.ClassLibrary
             return _custName;
         }
 
-        public String Statement()
+        public string Statement()
         {
             double temp = 0;
             int points = 0;
-            String result = "Rental Record for " + GetCustName() + "\n";
+            string result = "Rental Record for " + GetCustName() + "\n";
             foreach (RentalDetails rd in _rentals)
             {
                 double amt = 0;
