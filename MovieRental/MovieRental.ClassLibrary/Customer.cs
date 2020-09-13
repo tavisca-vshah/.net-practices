@@ -6,14 +6,14 @@ namespace MovieRental.ClassLibrary
     public class Customer
     {
         private string _custName;
-        private readonly List<RentalDetails> _rentals = new List<RentalDetails>();
+        private readonly List<Rental> _rentals = new List<Rental>();
 
         public Customer(string name)
         {
             _custName = name;
         }
 
-        public void AddRental(RentalDetails arg)
+        public void AddRental(Rental arg)
         {
             _rentals.Add(arg);
         }
@@ -28,7 +28,7 @@ namespace MovieRental.ClassLibrary
             double temp = 0;
             int points = 0;
             string result = "Rental Record for " + GetCustName() + "\n";
-            foreach (RentalDetails rd in _rentals)
+            foreach (Rental rd in _rentals)
             {
                 double amt = 0;
 

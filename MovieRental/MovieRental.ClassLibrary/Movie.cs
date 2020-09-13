@@ -2,12 +2,12 @@
 
 namespace MovieRental.ClassLibrary
 {
-    public class MovieData
+    public class Movie
     {
         private string _movieTitle;
         private int _priceCode;
 
-        public MovieData(string title, int priceCode)
+        public Movie(string title, int priceCode)
         {
             _movieTitle = title;
             _priceCode = priceCode;

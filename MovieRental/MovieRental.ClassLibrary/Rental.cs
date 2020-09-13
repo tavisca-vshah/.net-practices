@@ -1,11 +1,11 @@
 ﻿namespace MovieRental.ClassLibrary
 {
-    public class RentalDetails
+    public class Rental
     {
         private int _daysRented;
-        private MovieData _movie;
+        private Movie _movie;
 
-        public RentalDetails(MovieData movie, int daysRented)
+        public Rental(Movie movie, int daysRented)
         {
             _movie = movie;
             _daysRented = daysRented;
@@ -16,7 +16,7 @@
             return _daysRented;
         }
 
-        public MovieData GetMovie()
+        public Movie GetMovie()
         {
             return _movie;
         }
