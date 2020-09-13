@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace MovieRental.ClassLibrary
 {
-    public class CustInfo
+    public class Customer
     {
         private string _custName;
         private readonly List<RentalDetails> _rentals = new List<RentalDetails>();
 
-        public CustInfo(String name)
+        public Customer(String name)
         {
             _custName = name;
         }
