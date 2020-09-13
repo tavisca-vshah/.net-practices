@@ -5,7 +5,7 @@ namespace MovieRental.ClassLibrary
     public class Movie
     {
         private readonly string _movieTitle;
-        private int _priceCode;
+        private int _priceCode; //Todo: this should be enum
 
         public Movie(string title, int priceCode)
         {
