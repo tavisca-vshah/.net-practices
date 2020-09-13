@@ -23,5 +23,12 @@
         {
             return _movie;
         }
+
+        public bool IsEligibleForBonus()
+        {
+            var isTrendingMovie = GetMovie() is TrendingMovie;
+            var isNumberOfDaysRentedGreaterThanOne = GetDaysRented() > 1;
+            return isTrendingMovie && isNumberOfDaysRentedGreaterThanOne;
+        }
     }
 }

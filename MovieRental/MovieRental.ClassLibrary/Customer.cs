@@ -38,14 +38,7 @@ namespace MovieRental.ClassLibrary
             {
                 double amount = rd.GetMovie().GetPrice(rd.GetDaysRented());
 
-                // add frequent renter points
-                points++;
-
-                // add bonus for a two day new release rental
-                if ((rd.GetMovie() is TrendingMovie)
-                        &&
-                        rd.GetDaysRented() > 1) points++;
-
+                points += rd.IsEligibleForBonus() ? 2 : 1;
                 //show figures for this rental
                 result += "\t" + rd.GetMovie().GetMovieTitle() + "\t" +
                         amount + "\n";
