@@ -1,7 +1,7 @@
-﻿namespace MovieRental.ClassLibrary
-{
-    using System;
+﻿using System;
 
+namespace MovieRental.ClassLibrary
+{
     public class MovieData
     {
         private String movieTitle;

@@ -1,8 +1,8 @@
-﻿namespace MovieRental.ClassLibrary
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace MovieRental.ClassLibrary
+{
     public class CustInfo
     {
         private String cust_name;
