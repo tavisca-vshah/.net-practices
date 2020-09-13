@@ -25,6 +25,7 @@ namespace MovieRental.ClassLibrary
             return _name;
         }
 
+        //Todo: Remove this from here and create Interface for Statement Formatter
         public string TextStatement()
         {
             double temp = 0;
