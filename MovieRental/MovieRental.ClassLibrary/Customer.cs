@@ -37,17 +37,17 @@ namespace MovieRental.ClassLibrary
 
                 switch (rd.GetMovie().GetMovieType())
                 {
-                    case MovieType.Regular: // Regular movie
+                    case MovieType.Regular:
                         amt += 2;
                         if (rd.GetDaysRented() > 2)
                             amt += (rd.GetDaysRented() - 2) * 1.5;
                         break;
 
-                    case MovieType.RecentlyReleased:  // Recently released movie
+                    case MovieType.RecentlyReleased:
                         amt += rd.GetDaysRented() * 3;
                         break;
 
-                    case MovieType.LittleKids: //Little kids movies
+                    case MovieType.LittleKids:
                         amt += 1.5;
                         if (rd.GetDaysRented() > 3)
                             amt += (rd.GetDaysRented() - 3) * 1.5;
