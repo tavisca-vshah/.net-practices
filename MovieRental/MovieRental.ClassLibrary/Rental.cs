@@ -24,11 +24,16 @@
             return _movie;
         }
 
-        public bool IsEligibleForBonus()
+        private bool IsEligibleForBonus()
         {
             var isTrendingMovie = GetMovie() is TrendingMovie;
             var isNumberOfDaysRentedGreaterThanOne = GetDaysRented() > 1;
             return isTrendingMovie && isNumberOfDaysRentedGreaterThanOne;
+        }
+
+        public int GetPoints()
+        {
+            return IsEligibleForBonus() ? 2 : 1;
         }
     }
 }

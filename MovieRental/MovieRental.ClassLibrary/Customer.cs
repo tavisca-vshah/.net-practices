@@ -36,9 +36,9 @@ namespace MovieRental.ClassLibrary
             string result = "Rental Record for " + GetName() + "\n";
             foreach (Rental rd in _rentals)
             {
-                double amount = rd.GetMovie().GetPrice(rd.GetDaysRented());
+                var amount = rd.GetMovie().GetPrice(rd.GetDaysRented());
 
-                points += rd.IsEligibleForBonus() ? 2 : 1;
+                points += rd.GetPoints();
                 //show figures for this rental
                 result += "\t" + rd.GetMovie().GetMovieTitle() + "\t" +
                         amount + "\n";
