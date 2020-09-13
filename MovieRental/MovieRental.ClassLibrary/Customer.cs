@@ -34,17 +34,17 @@ namespace MovieRental.ClassLibrary
 
                 switch (rd.GetMovie().GetPriceCode())
                 {
-                    case 0: //常規電影 Chángguī diànyǐng
+                    case 0: // Regular movie
                         amt += 2;
                         if (rd.GetDaysRented() > 2)
                             amt += (rd.GetDaysRented() - 2) * 1.5;
                         break;
 
-                    case 1:  // Film récemment sorti
+                    case 1:  // Recently released movie
                         amt += rd.GetDaysRented() * 3;
                         break;
 
-                    case 2: //छोटे बच्चो की मूवीज
+                    case 2: //Little kids movies
                         amt += 1.5;
                         if (rd.GetDaysRented() > 3)
                             amt += (rd.GetDaysRented() - 3) * 1.5;
