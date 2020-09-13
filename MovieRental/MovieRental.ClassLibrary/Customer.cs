@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace MovieRental.ClassLibrary
 {
@@ -10,6 +11,7 @@ namespace MovieRental.ClassLibrary
 
         public Customer(string name)
         {
+            Guard.Against.NullOrWhiteSpace(name, nameof(name));
             _name = name;
         }
 

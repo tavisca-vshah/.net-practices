@@ -7,6 +7,9 @@
 
         public Rental(Movie movie, int daysRented)
         {
+            Guard.Against.Null(movie, nameof(movie));
+            Guard.Against.LessThanZero(daysRented, nameof(daysRented));
+
             _movie = movie;
             _daysRented = daysRented;
         }

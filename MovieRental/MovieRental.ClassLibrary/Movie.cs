@@ -9,6 +9,9 @@ namespace MovieRental.ClassLibrary
 
         public Movie(string title, int priceCode)
         {
+            Guard.Against.NullOrWhiteSpace(title, nameof(title));
+            Guard.Against.LessThanZero(priceCode, nameof(priceCode));
+
             _movieTitle = title;
             _priceCode = priceCode;
         }
@@ -20,6 +23,8 @@ namespace MovieRental.ClassLibrary
 
         public void SetPriceCode(int arg)
         {
+            Guard.Against.LessThanZero(arg, nameof(arg));
+
             _priceCode = arg;
         }
 
