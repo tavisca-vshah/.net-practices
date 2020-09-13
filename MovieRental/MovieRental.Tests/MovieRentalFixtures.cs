@@ -15,7 +15,9 @@ namespace MovieRental.Tests
             customer.AddRental(new Rental(new RegularMovie("Harry Potter"), 4));
             customer.AddRental(new Rental(new KidsMovie("John Wick"), 10));
             customer.AddRental(new Rental(new TrendingMovie("The Boult"), 20));
-            string statement = customer.TextStatement();
+            var textStatementFormatter = new TextStatementFormatter();
+            var statement = textStatementFormatter.FormatCustomerDetails(customer);
+
             Assert.Equal(
                 "Rental Record for John Doe\n" +
                     "\tHarry Potter\t5\n" +
